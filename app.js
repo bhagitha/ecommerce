@@ -8,7 +8,8 @@ mongoose.connect('mongodb+srv://user_bhagitha:Bhagitha9072%40@mycluster.74kgk.az
     console.log('db Connected !!')
 })
 const router=require('./src/routers/router')
-const { application } = require('express')
+const PORT=process.env.PORT || 8080
+
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -20,6 +21,6 @@ app.get('/*',function(req,res){
     res.sendFile(path.join(__dirname+'/build/index.html'))
 })
 
-app.listen(5000,()=>{
+app.listen(PORT,()=>{
     console.log("server started at http://localhost:5000")
 })
